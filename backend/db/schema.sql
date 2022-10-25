@@ -14,6 +14,7 @@ DROP TABLE IF EXISTS budgets;
 
 CREATE TABLE budgets (
     id SERIAL PRIMARY KEY,
+    budget_name TEXT,
     total_assigned BIGINT,
     -- month_year TIMESTAMP NOT NULL,
     user_id INTEGER REFERENCES users (id) ON DELETE CASCADE
