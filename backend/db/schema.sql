@@ -63,5 +63,5 @@ CREATE TABLE subcategories (
     subcategory_assigned_money BIGINT,
     subcategory_activity BIGINT,
     subcategory_available BIGINT,
-    budget_id INTEGER REFERENCES categories (id) ON DELETE CASCADE
+    category_id INTEGER REFERENCES categories (id) ON DELETE CASCADE
 );
