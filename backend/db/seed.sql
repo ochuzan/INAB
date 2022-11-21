@@ -10,7 +10,7 @@ INSERT INTO accounts (budget_id, account_name, cleared_balance, pending_balance,
 ('1', 'Chase Checking', 0, 0, 0);
 
 INSERT INTO transactions (account_id, transaction_date, payee, memo, outflow, inflow, cleared) VALUES
-('1', '2022-10-25 18:00:00', 'Starting Balance', 'What I had in my checking account', '', '100', true);
+('1', '2022-10-25 18:00:00', 'Starting Balance', 'What I had in my checking account', '0', '100', true);
 
 INSERT INTO categories (budget_id, category_name, category_assigned_money, category_activity, category_available) VALUES
 ('1', 'Fixed Expenses', 0, 0, 0),
