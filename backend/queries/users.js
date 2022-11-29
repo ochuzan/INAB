@@ -7,7 +7,7 @@ const getAllUsers = async() => {
         return allUsers;
     } catch (error) {
         return error;
-    }
+    };
 };
 
 const createUser = async(user) => {
@@ -24,7 +24,7 @@ const createUser = async(user) => {
         return newUser;
     } catch (error) {
         return error;
-    }
+    };
 };
 
 const getOneUser = async(id) => {
@@ -36,7 +36,7 @@ const getOneUser = async(id) => {
         return oneUser;
     } catch (error) {
         return error;
-    }
+    };
 };
 
 const updateUser = async(id, user) => {
@@ -46,17 +46,18 @@ const updateUser = async(id, user) => {
             [
                 user.username,
                 user.email,
-                user.password
+                user.password,
+                id
             ]
         );
 
         return updatedUser;
     } catch (error) {
         return error;
-    }
+    };
 };
 
-const deleteUser = async(id, user) => {
+const deleteUser = async(id) => {
     try {
         const deletedUser = await db.one(
             "DELETE FROM users WHERE id=$1 RETURNING *",
@@ -66,7 +67,7 @@ const deleteUser = async(id, user) => {
         return deletedUser;
     } catch (error) {
         return error;
-    }
+    };
 };
 
 module.exports = {
