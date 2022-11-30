@@ -1,8 +1,11 @@
 const db = require('../db/dbConfig');
 
-const getAllAccounts = async() => {
+const getAllAccounts = async(budget_id) => {
     try {
-        const allAccounts = await db.any("SELECT * FROM accounts");
+        const allAccounts = await db.any(
+            "SELECT * FROM accounts WHERE budget_id=$1",
+            budget_id
+        );
 
         return allAccounts;
     } catch (error) {
@@ -18,7 +21,8 @@ const createAccount = async(account) => {
                 account.account_name,
                 account.cleared_balance,
                 account.pending_balance,
-                account.working_balance
+                account.working_balance,
+                account.budget_id
             ]
         );
 
@@ -49,6 +53,7 @@ const updateAccount = async(id, account) => {
                 account.cleared_balance,
                 account.pending_balance,
                 account.working_balance,
+                account.budget_id,
                 id
             ]
         );
